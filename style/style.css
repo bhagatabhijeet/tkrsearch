@@ -1,0 +1,12 @@
+/*
+overall color consistency is to be maintained.
+current color index:
+#334355 - navbar background
+#ffffff - (white) used in logo
+#d9dbdf - logo letters border
+#5d9eda - another color for theme this is used in letters t,k,r in logo 
+*/
+.navbar-custom { 
+    /*note in RGB This color is  R:51 G:67 B:85 */
+    background-color: #334355 !important; 
+} 
