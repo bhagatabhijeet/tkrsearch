@@ -7,7 +7,7 @@ $(document).ready(function(){
     // Stock API call
     function stockApi(stockSymbols){
         const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
-        const stockURL = `https://marketdata.websol.barchart.com/getQuote.json?apikey=${stockApiKey}&symbols=${stockSymbols}&fields=fiftyTwoWkHigh%2CfiftyTwoWkHighDate%2CfiftyTwoWkLow%2CfiftyTwoWkLowDate`
+        const stockURL = `https://marketdata.websol.barchart.com/getQuote.json?apikey=${stockApiKey}&symbols=${stockSymbols}`
         $.ajax({
             url: stockURL,
             method: "GET",
@@ -16,9 +16,10 @@ $(document).ready(function(){
         });
     }    
 
+    // Company Profile call
     function getProfile(stockSymbols){
         const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
-        const profileURL = `https://marketdata.websol.barchart.com/getProfile.json?apikey=${stockApiKey}&symbols=${stockSymbols}&fields=businessSummary`
+        const profileURL = `https://marketdata.websol.barchart.com/getProfile.json?apikey=${stockApiKey}&symbols=${stockSymbols}`
         $.ajax({
             url: profileURL,
             method: "GET",
@@ -27,6 +28,19 @@ $(document).ready(function(){
         });
     } 
 
+    // Gets Top 10 Hot stocks
+    function getLeaders(stockSymbols){
+        const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
+        const leadersURL = `https://marketdata.websol.barchart.com/getLeaders.json?apikey=${stockApiKey}&symbols=${stockSymbols}&assetType=STK&type=hot&maxRecords=10&sortDirection=DESC`
+        $.ajax({
+            url: profileURL,
+            method: "GET",
+        }).then(function(leadersData) {
+            console.log(leadersData);
+        });
+    } 
+
     stockApi(stockSymbols);
     getProfile(stockSymbols);
+    getLeaders(stockSymbols);
 })
