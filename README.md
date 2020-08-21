@@ -1,4 +1,9 @@
-# Tkr Search
+# tkrsearch
 
 
-### A simple stock viewer, get the latest stock or crypto information with a few key strokes.
+
+<div align="center">
+<img src="images/logo_large.png"/>
+</div>
+
+Application Url : https://bhagatabhijeet.github.io/tkrsearch/index.html
