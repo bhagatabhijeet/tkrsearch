@@ -10,3 +10,22 @@ current color index:
     /*note in RGB This color is  R:51 G:67 B:85 */
     background-color: #334355 !important; 
 } 
+
+/* formatting the top search bar */
+.form-inline {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* formatting the panels */
+.panelLeft {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.panelRight {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
