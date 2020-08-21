@@ -14,7 +14,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-    
+    <!-- Tabulator -->
+    <link href="https://unpkg.com/tabulator-tables@4.7.2/dist/css/tabulator.min.css" rel="stylesheet">
     <!-- our stylesheet  -->
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -24,7 +25,49 @@
     <nav class="navbar navbar-sm navbar-custom">
         <a class="navbar-brand" href="#"><img src="images/logo_large.png"></a>
     </nav>
-
+    <!-- Search Bar -->
+    <div class="form">
+    <form class="form-inline mr-auto">
+        <input class="form-control mr-sm-2" type="text" placeholder="Find Stock" aria-label="Search">
+        <button class="btn blue-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+    </form>
+    </div>
+    <!-- Main Panels -->
+    <!-- Left Panel -->
+    <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+            <div class="panelLeft">
+                <div class="text-white text-center d-flex align-items-center rgba-blue-strong py-5 px-4">
+                    <div>
+                        <h3 class="mb-4 mt-4 font-weight-bold">
+                            <strong>Top Stocks</strong>
+                        </h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
+                            voluptatem,
+                            optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                            Odit sed qui, dolorum!.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Right Panel -->
+        <div class="col-md-6 mb-4">
+            <div class="panelRight">
+                <!-- Content -->
+                <div class="text-white text-center d-flex align-items-center rgba-teal-strong py-5 px-4">
+                    <div>
+                        <h3 class="mb-4 mt-4 font-weight-bold">
+                            <strong>Top Crypto</strong>
+                        </h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam,
+                            voluptatem,
+                            optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                            Odit sed qui, dolorum!.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- End main panels -->
 
     <!-- script includes for MDB 4.19.1 -->
     <!-- JQuery -->
@@ -38,6 +81,8 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-</body>
+    <!-- Tabulator Script -->
+        <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
+    </body>
 
 </html>
