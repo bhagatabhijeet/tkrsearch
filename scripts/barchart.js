@@ -1,12 +1,11 @@
-$(document).ready(function(){
 
     // Temporary value (need input from searchbox)
     let stockSymbols = 'AAPL'
 
     // Stock API call
-    function stockApi(stockSymbols){
-        const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
-        const stockURL = `https://marketdata.websol.barchart.com/getQuote.json?apikey=${stockApiKey}&symbols=${stockSymbols}`
+    function getStock(stockSymbols){
+        const stockApiKey = 'pk_9eb49acc515249ba85d431d6a16d502b'
+        const stockURL = `https://cloud.iexapis.com/v1/stock/${stockSymbols}/batch?types=quote,news,chart&token=${stockApiKey}`
         $.ajax({
             url: stockURL,
             method: "GET",
@@ -15,44 +14,13 @@ $(document).ready(function(){
         });
     }    
 
-    // Company Profile call
-    function getProfile(stockSymbols){
-        const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
-        const profileURL = `https://marketdata.websol.barchart.com/getProfile.json?apikey=${stockApiKey}&symbols=${stockSymbols}`
+    function getCompany(stockSymbols){
+        const stockApiKey = 'pk_9eb49acc515249ba85d431d6a16d502b'
+        const companyURL = `https://cloud.iexapis.com/v1/stock/${stockSymbols}/company?token=${stockApiKey}`
         $.ajax({
-            url: profileURL,
+            url: companyURL,
             method: "GET",
-        }).then(function(profileData) {
-            console.log(profileData);
+        }).then(function(companyData) {
+            console.log(companyData);
         });
-    } 
-
-    // Gets Top 10 Hot stocks
-    function getLeaders(stockSymbols){
-        const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
-        const leadersURL = `https://marketdata.websol.barchart.com/getLeaders.json?apikey=${stockApiKey}&symbols=${stockSymbols}&assetType=STK&type=hot&maxRecords=10&sortDirection=DESC`
-        $.ajax({
-            url: leadersURL,
-            method: "GET",
-        }).then(function(leadersData) {
-            console.log(leadersData);
-        });
-    } 
-
-    // Gets Chart image
-    function getChart(stockSymbols){
-        const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
-        const stockURL = `https://marketdata.websol.barchart.com/getChart.json?apikey=${stockApiKey}&symbols=${stockSymbols}`
-        $.ajax({
-            url: stockURL,
-            method: "GET",
-        }).then(function(chartData) {
-            console.log(chartData);
-        });
-    }    
-
-    stockApi(stockSymbols);
-    getProfile(stockSymbols);
-    getLeaders(stockSymbols);
-    getChart(stockSymbols);
-})
+    }
