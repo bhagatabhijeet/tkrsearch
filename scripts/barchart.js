@@ -18,7 +18,7 @@ $(document).ready(function(){
 
     function getProfile(stockSymbols){
         const stockApiKey = '93422ad3ea073e8cede10d31527869b6'
-        const profileURL = `https://marketdata.websol.barchart.com/getProfile.json?apikey=${stockApiKey}&symbols=${stockSymbols}&fields=qtrOneEarnings%2CqtrTwoEarnings%2CqtrThreeEarnings%2CqtrFourEarnings`
+        const profileURL = `https://marketdata.websol.barchart.com/getProfile.json?apikey=${stockApiKey}&symbols=${stockSymbols}&fields=businessSummary`
         $.ajax({
             url: profileURL,
             method: "GET",
@@ -28,5 +28,5 @@ $(document).ready(function(){
     } 
 
     stockApi(stockSymbols);
-
+    getProfile(stockSymbols);
 })
