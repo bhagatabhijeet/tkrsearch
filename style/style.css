@@ -62,3 +62,21 @@ body {
  .custom-control-label {
     color: white;
  }
+
+ #stockResults {
+    display: none;
+    color: white;
+    margin-bottom: 2rem;
+    width:50%
+ }
+ #cryptoResults {
+    display: none;
+    color: white;
+    margin-bottom: 2rem;
+    width:50%
+ }
+
+ .container {
+    display: flex;
+    justify-content: center;
+ }
