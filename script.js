@@ -19,8 +19,9 @@ $('document').ready(async () => {
   if (topCrypto.error === false) {
     let cryptoList = '';
 
+    // This will loop through the returned Data Array
     topCrypto.data.forEach((element) => {
-      console.log(element);
+      // Creating a string of the following
       cryptoList += ` 
         <tr>
             <th scope="row">${element.rank}</th>
@@ -33,6 +34,7 @@ $('document').ready(async () => {
         `;
     });
 
+    // Append list into table body
     $('#cryptoList').html(cryptoList);
   }
 
