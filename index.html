@@ -2,154 +2,154 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TKRSEARCH</title>
-    <!-- link includes for MDB 4.19.1 -->
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-    <!-- Tabulator -->
-    <link href="https://unpkg.com/tabulator-tables@4.7.2/dist/css/tabulator.min.css" rel="stylesheet">
-    <!-- our stylesheet  -->
-    <link rel="stylesheet" href="style/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TKRSEARCH</title>
+  <!-- link includes for MDB 4.19.1 -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <!-- Tabulator -->
+  <link href="https://unpkg.com/tabulator-tables@4.7.2/dist/css/tabulator.min.css" rel="stylesheet">
+  <!-- our stylesheet  -->
+  <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-sm navbar-custom">
-        <a class="navbar-brand" href="#"><img src="images/logo_large.png"></a>
-    </nav>
-    <!-- Search Bar -->
-    <div class="form">
+  <!-- navbar -->
+  <nav class="navbar navbar-sm navbar-custom">
+    <a class="navbar-brand" href="#"><img src="images/logo_large.png"></a>
+  </nav>
+  <!-- Search Bar -->
+  <div class="form">
     <form class="form-inline mr-auto">
-        <input class="form-control mr-sm-2" type="text" placeholder="Find Stock" aria-label="Search">
-        <button class="btn blue-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="text" placeholder="Find Stock" aria-label="Search">
+      <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit">Search</button>
     </form>
+  </div>
+  <!-- Main Panels -->
+  <!-- Left Panel -->
+  <div class="row mb-4">
+    <div class="col-md-6 mb-4">
+      <div class="panelLeft">
+        <div class="text-white text-center align-items-center blue-gradient py-5 px-4">
+          <div>
+            <h3 class="mb-4 mt-4 font-weight-bold">
+              <strong>Top Stocks</strong>
+            </h3>
+            <!-- Left Panel Table -->
+            <div>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Main Panels -->
-    <!-- Left Panel -->
-    <div class="row mb-4">
-        <div class="col-md-6 mb-4">
-            <div class="panelLeft">
-                <div class="text-white text-center align-items-center rgba-blue-strong py-5 px-4">
-                    <div>
-                        <h3 class="mb-4 mt-4 font-weight-bold">
-                            <strong>Top Stocks</strong>
-                        </h3>
-                        <!-- Left Panel Table -->
-                        <div>
-                        <table class="table table-sm">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Symbol</th>
-                                <th scope="col">Price</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Apple</td>
-                                <td>APPL</td>
-                                <td>$500</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">2</th>
-                                <td>Apple</td>
-                                <td>APPL</td>
-                                <td>$500</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">3</th>
-                                <td>Apple</td>
-                                <td>APPL</td>
-                                <td>$500</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">4</th>
-                                <td>Apple</td>
-                                <td>APPL</td>
-                                <td>$500</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">5</th>
-                                <td>Apple</td>
-                                <td>APPL</td>
-                                <td>$500</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     <!-- Right Panel -->
-        <div class="col-md-6 mb-4">
-            <div class="panelRight">
-                <!-- Content -->
-                <div class="text-white text-center align-items-center rgba-teal-strong py-5 px-4">
-                    <div>
-                        <h3 class="mb-4 mt-4 font-weight-bold">
-                            <strong>Top Crypto</strong>
-                        </h3>
-                        <!-- Right panel table -->
-                        <div>
-                            <table class="table table-sm">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Symbol</th>
-                                    <th scope="col">Price</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Apple</td>
-                                    <td>APPL</td>
-                                    <td>$500</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Apple</td>
-                                    <td>APPL</td>
-                                    <td>$500</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Apple</td>
-                                    <td>APPL</td>
-                                    <td>$500</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">4</th>
-                                    <td>Apple</td>
-                                    <td>APPL</td>
-                                    <td>$500</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">5</th>
-                                    <td>Apple</td>
-                                    <td>APPL</td>
-                                    <td>$500</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </div>
-                    </div>
-                </div>
+    <div class="col-md-6 mb-4">
+      <div class="panelRight">
+        <!-- Content -->
+        <div class="text-white text-center align-items-center aqua-gradient py-5 px-4">
+          <div>
+            <h3 class="mb-4 mt-4 font-weight-bold">
+              <strong>Top Crypto</strong>
+            </h3>
+            <!-- Right panel table -->
+            <div>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Apple</td>
+                    <td>APPL</td>
+                    <td>$500</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
-<!-- End main panels -->
+      </div>
+    </div>
+    <!-- End main panels -->
 
     <!-- script includes for MDB 4.19.1 -->
     <!-- JQuery -->
@@ -164,9 +164,16 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     <!-- Tabulator Script -->
-    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
-    <!-- script.js     -->
-    <script type="module" src="script.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
+    <!-- Main Script -->
+    <script type="text/javascript" src="./script.js"></script>
     </body>
+    <!-- Footer -->
+    <footer style="text-align: center;position: 0%;width: 100%;background-color:#334355; height: 30px;">
+      <div style="text-align: center;">
+           <img src="images/logo_large.png" width="120px" style="margin-right: 15px;"/><a href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+  </footer>
+ 
 
 </html>
