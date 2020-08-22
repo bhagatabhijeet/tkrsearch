@@ -30,6 +30,16 @@
     <form class="form-inline mr-auto">
       <!-- Need to add a label, placeholders are fancy bad for Accessibility. So an invisible label would go here -->
       <input class="form-control mr-sm-2" type="text" placeholder="Find Stocks or Crypto" aria-label="Search">
+      <!-- Default inline 1 for stocks-->
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
+        <label class="custom-control-label" for="defaultInline1">Stocks</label>
+      </div>
+      <!-- Default inline 2 for crypto-->
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+        <label class="custom-control-label" for="defaultInline2">Crypto</label>
+      </div>
       <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit">Search</button>
     </form>
   </div>
@@ -41,7 +51,7 @@
         <div class="text-white text-center align-items-center blue-gradient py-5 px-4">
           <div>
             <h3 class="mb-4 mt-4 font-weight-bold">
-              <strong>Top Stocks by Market Cap</strong>
+              <strong>Top Active Stocks</strong>
             </h3>
             <!-- Left Panel Table -->
             <div>
@@ -52,7 +62,6 @@
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Market Cap</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -61,13 +70,11 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
-                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Apple</td>
                     <td>APPL</td>
-                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                   <tr>
@@ -75,20 +82,17 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
-                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
-                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
                     <td>Apple</td>
                     <td>APPL</td>
-                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                 </tbody>
@@ -105,7 +109,7 @@
         <div class="text-white text-center align-items-center aqua-gradient py-5 px-4">
           <div>
             <h3 class="mb-4 mt-4 font-weight-bold">
-              <strong>Top Crypto by Market Cap</strong>
+              <strong>Top Active Crypto</strong>
             </h3>
             <!-- Right panel table -->
             <div>
@@ -116,7 +120,6 @@
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Market Cap</th>
                   </tr>
                 </thead>
                 <tbody id="cryptoList">
@@ -125,13 +128,11 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
-                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Apple</td>
                     <td>APPL</td>
-                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                   <tr>
@@ -139,20 +140,17 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
-                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
-                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
                     <td>Apple</td>
                     <td>APPL</td>
-                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                 </tbody>
@@ -166,9 +164,9 @@
 
     <!-- Footer -->
     <footer id="footer" style="text-align: center;position: 0%;width: 100%;background-color:#334355; height: 30px;">
-      <div style="text-align: center;">
-        <img src="images/logo_large.png" width="120px" style="margin-right: 15px;" /><a
-          href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
+      <div>
+        <p>GitHub Project Details <a href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
+        </p>
       </div>
     </footer>
 
@@ -177,13 +175,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     <!-- Tabulator Script -->
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
     <!-- Moment JS -->
@@ -191,7 +189,7 @@
     <!-- Main Script -->
     <script type="module" src="./script.js"></script>
 
-    </body>
- 
+</body>
+
 
 </html>
