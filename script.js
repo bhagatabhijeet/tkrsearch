@@ -7,6 +7,29 @@ let stockSymbols = 'AAPL';
 // getStock('AAPL');
 
 $('document').ready(async () => {
+   // Populate Top Stocks
+   let topStocks = await getTopStocks();
+   console.log(topStocks);
+   let stockList = '';
+   let i = 1;
+ 
+   // This will loop through the returned Data Array
+   topStocks.forEach((element) => {
+     // Creating a string of the following
+     stockList += ` 
+       <tr>
+           <th scope="row">${i++}</th>
+           <td>${element.companyName}</td>
+           <td>${element.symbol}</td>
+           <td>${element.latestPrice}</td>
+           <td>${element.marketCap}</td>
+       </tr>
+       `;
+   });
+ 
+   // Append list into table body
+   $('#stockList').html(stockList);
+ // }
   // Get Top 10 Crypto from API
 
   let topCrypto = await getTopCrypto();
