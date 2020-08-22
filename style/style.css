@@ -9,7 +9,13 @@ current color index:
 .navbar-custom { 
     /*note in RGB This color is  R:51 G:67 B:85 */
     background-color: #334355 !important; 
-} 
+}
+
+/* remove horizontal scroll */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 /* formatting the top search bar */
 .form-inline {
