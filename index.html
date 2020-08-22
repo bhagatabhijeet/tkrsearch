@@ -29,7 +29,7 @@
   <div class="form">
     <form class="form-inline mr-auto">
       <!-- Need to add a label, placeholders are fancy bad for Accessibility. So an invisible label would go here -->
-      <input class="form-control mr-sm-2" type="text" placeholder="Search Stocks or Crypto" aria-label="Search">
+      <input class="form-control mr-sm-2" type="text" placeholder="Find Stocks or Crypto" aria-label="Search">
       <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit">Search</button>
     </form>
   </div>
@@ -41,7 +41,7 @@
         <div class="text-white text-center align-items-center blue-gradient py-5 px-4">
           <div>
             <h3 class="mb-4 mt-4 font-weight-bold">
-              <strong>Top Stocks</strong>
+              <strong>Top Stocks by Market Cap</strong>
             </h3>
             <!-- Left Panel Table -->
             <div>
@@ -52,6 +52,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Market Cap</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,11 +61,13 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
+                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Apple</td>
                     <td>APPL</td>
+                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                   <tr>
@@ -72,17 +75,20 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
+                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
+                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
                     <td>Apple</td>
                     <td>APPL</td>
+                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                 </tbody>
@@ -99,7 +105,7 @@
         <div class="text-white text-center align-items-center aqua-gradient py-5 px-4">
           <div>
             <h3 class="mb-4 mt-4 font-weight-bold">
-              <strong>Top Crypto</strong>
+              <strong>Top Crypto by Market Cap</strong>
             </h3>
             <!-- Right panel table -->
             <div>
@@ -109,7 +115,8 @@
                     <th scope="col">Rank</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Last Updated</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Market Cap</th>
                   </tr>
                 </thead>
                 <tbody id="cryptoList">
@@ -118,11 +125,13 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
+                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Apple</td>
                     <td>APPL</td>
+                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                   <tr>
@@ -130,17 +139,20 @@
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
+                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>Apple</td>
                     <td>APPL</td>
                     <td>$500</td>
+                    <td>$500</td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
                     <td>Apple</td>
                     <td>APPL</td>
+                    <td>$500</td>
                     <td>$500</td>
                   </tr>
                 </tbody>
@@ -151,6 +163,14 @@
       </div>
     </div>
     <!-- End main panels -->
+
+    <!-- Footer -->
+    <footer id="footer" style="text-align: center;position: 0%;width: 100%;background-color:#334355; height: 30px;">
+      <div style="text-align: center;">
+        <img src="images/logo_large.png" width="120px" style="margin-right: 15px;" /><a
+          href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
 
     <!-- script includes for MDB 4.19.1 -->
     <!-- JQuery -->
@@ -172,12 +192,6 @@
     <script type="module" src="./script.js"></script>
 
     </body>
-    <!-- Footer -->
-    <footer style="text-align: center;position: 0%;width: 100%;background-color:#334355; height: 30px;">
-      <div style="text-align: center;">
-           <img src="images/logo_large.png" width="120px" style="margin-right: 15px;"/><a href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
-      </div>
-  </footer>
  
 
 </html>
