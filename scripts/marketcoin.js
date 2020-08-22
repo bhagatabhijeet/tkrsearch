@@ -9,14 +9,34 @@ const cryptokey =
  */
 export async function getTopCrypto(limit = '10') {
   console.log(`Top 10 Crypto`);
-  const cryptoTopURL = ``;
+  const cryptoTopURL = `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=${limit}&tsym=USD&api_key=${cryptokey}`;
   let response = {};
 
   await $.get({
-    url: `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=${limit}&tsym=USD&api_key=${cryptokey}`,
+    url: ``,
   })
     .then(({ Data }) => {
       response = { Data, error: false };
+    })
+    .fail((err) => {
+      console.log(err.Message);
+      response = { error: true, message: err.Message };
+    });
+  return response;
+}
+/*
+ * @param {string} cSymbol - Must get a Symbol
+ */
+export async function getCryptoBy(cSymbol) {
+  console.log(`Getting data for ${cSymbol}`);
+  const cryptoGetcSymbolURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cSymbol}&tsyms=USD&api_key=${cryptokey}`;
+  let response = {};
+
+  await $.get({
+    url: cryptoGetcSymbolURL,
+  })
+    .then((data) => {
+      response = { data, error: false };
     })
     .fail((err) => {
       console.log(err.Message);

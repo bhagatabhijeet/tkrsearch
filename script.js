@@ -1,6 +1,9 @@
-// Import functions
-import { getTopCrypto, getCryptoBySymbol } from './scripts/marketcoin.js';
+
+import { getTopCrypto, getCryptoBy } from './scripts/marketcoin.js';
 import { getStock, getCompany, getTopStocks } from './scripts/stock.js';
+
+let stockSymbols = 'AAPL';
+// getStock('AAPL');
 
 $('document').ready(async () => {
   // // Populate Top Stocks
@@ -61,6 +64,7 @@ $('document').ready(async () => {
       if(response.HasWarning){
         console.log(response.);
       }
+
 
       // Deconstruct
       let { PRICE: price } = response.DISPLAY.cSymbol.USD;
