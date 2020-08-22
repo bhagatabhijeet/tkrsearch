@@ -28,7 +28,8 @@
   <!-- Search Bar -->
   <div class="form">
     <form class="form-inline mr-auto">
-      <input class="form-control mr-sm-2" type="text" placeholder="Find Stock" aria-label="Search">
+      <!-- Need to add a label, placeholders are fancy bad for Accessibility. So an invisible label would go here -->
+      <input class="form-control mr-sm-2" type="text" placeholder="Search Stocks or Crypto" aria-label="Search">
       <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit">Search</button>
     </form>
   </div>
@@ -105,13 +106,13 @@
               <table class="table table-sm">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Rank</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Last Updated</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="cryptoList">
                   <tr>
                     <th scope="row">1</th>
                     <td>Apple</td>
@@ -164,9 +165,12 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     <!-- Tabulator Script -->
-        <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
+    <!-- Moment JS -->
+    <script src="./scripts/moment.js"></script>
     <!-- Main Script -->
-    <script type="text/javascript" src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
+
     </body>
     <!-- Footer -->
     <footer style="text-align: center;position: 0%;width: 100%;background-color:#334355; height: 30px;">
