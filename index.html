@@ -32,7 +32,7 @@
       <input class="form-control mr-sm-2" type="text" placeholder="Find Stocks or Crypto" aria-label="Search">
       <!-- Default inline 1 for stocks-->
       <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
+        <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked>
         <label class="custom-control-label" for="defaultInline1">Stocks</label>
       </div>
       <!-- Default inline 2 for crypto-->
@@ -61,7 +61,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Price $</th>
                   </tr>
                 </thead>
                 <tbody id="stockList">
@@ -120,7 +120,7 @@
                     <th scope="col">Rank</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Price $</th>
                   </tr>
                 </thead>
                 <tbody id="cryptoList">
@@ -162,6 +162,38 @@
       </div>
     </div>
     <!-- End main panels -->
+
+    <!-- Results Containers -->
+      <!-- Stocks Results -->
+      <div class="container">
+        <div class="card blue-gradient" style="width:100%" id="stockResults">
+          <div class="card-header align-text-top" id="stockNameInfo">                  
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item blue-gradient"><span>Stock Name :</span><span id="stockName"></span></li>
+            <li class="list-group-item blue-gradient"><span>Stock Ticker :</span><span id="stockTicker"></span></li>
+            <li class="list-group-item blue-gradient"><span>Stock Price :</span><span id="stockPrice"></span></li>
+            <li class="list-group-item blue-gradient"><span>Stock Open :</span><span id="stockOpen"></li>
+            <li class="list-group-item blue-gradient"><span>Stock High :</span><span id="stockHigh"></li>
+              <li class="list-group-item blue-gradient"><span>Stock Low :</span><span id="stockLow"></li>
+          </ul>
+        </div>   
+      </div>
+    <!-- Crypto Results -->
+    <div class="container">
+      <div class="card aqua-gradient" style="width:100%" id="cryptoResults">
+        <div class="card-header align-text-top" id="cryptoNameInfo">                  
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item aqua-gradient"><span>Crypto Name :</span><span id="cryptoName"></span></li>
+          <li class="list-group-item aqua-gradient"><span>Crypto Ticker :</span><span id="cryptoTicker"></span></li>
+          <li class="list-group-item aqua-gradient"><span>Crypto Price :</span><span id="cryptoPrice"></span></li>
+          <li class="list-group-item aqua-gradient"><span>Crypto Open :</span><span id="cryptoOpen"></li>
+          <li class="list-group-item aqua-gradient"><span>Crypto High :</span><span id="cryptoHigh"></li>
+            <li class="list-group-item aqua-gradient"><span>Crypto Low :</span><span id="cryptoLow"></li>
+        </ul>
+      </div>   
+    </div>
 
     <!-- Footer -->
     <footer id="footer" style="text-align: center;position: 0%;width: 100%;background-color:#334355; height: 30px;">
