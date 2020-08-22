@@ -8,7 +8,24 @@ current color index:
 */
 .navbar-custom { 
     /*note in RGB This color is  R:51 G:67 B:85 */
-    background-color: #334355 !important; 
+    background-color:#3d46cd !important; 
+    height: 45px;
+    padding: 0% 20px;
+    color:whitesmoke;
+}
+a.navbar-brand{
+    color: white;
+}
+
+a.navbar-brand:hover{
+    color:whitesmoke;
+}
+
+#searchForm{
+    margin-top: 55px;
+    width:60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* remove horizontal scroll */
@@ -56,6 +73,7 @@ body {
     line-height: 30px;
     font-size: smaller;
     text-align: center;
+    vertical-align: text-bottom;
  }
  
 
