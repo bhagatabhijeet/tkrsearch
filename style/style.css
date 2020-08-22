@@ -47,3 +47,18 @@ body {
 .table {
     color: white;
 }
+
+#footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    color: white;
+    line-height: 30px;
+    font-size: smaller;
+    text-align: center;
+ }
+ 
+
+ .custom-control-label {
+    color: white;
+ }

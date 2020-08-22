@@ -1,12 +1,14 @@
 // Import functions
-import { getStock, getCompany, getTopActive } from './scripts/stock.js';
 import { getTopCrypto } from './scripts/marketcoin.js';
+import { getStock, getCompany, getTopStocks } from './scripts/stock.js';
+
 
 let stockSymbols = 'AAPL';
 // getStock('AAPL');
 
 $('document').ready(async () => {
   // Get Top 10 Crypto from API
+
   let topCrypto = await getTopCrypto();
 
   // No Error in API Response -> Continue
