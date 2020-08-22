@@ -1,41 +1,34 @@
 // Import functions
 import { getStock, getCompany, getTopActive } from './scripts/stock.js';
-import { getTopCrypto, getCryptoList } from './scripts/marketcoin.js';
+import { getTopCrypto } from './scripts/marketcoin.js';
 
 let stockSymbols = 'AAPL';
-// getStock(stockSymbols);
+// getStock('AAPL');
 
 $('document').ready(async () => {
-  // Populate 5000 Coins
-  // TODO -> Use better API
-  // let cryptoData = getCryptoList('5000');
-
-  // Populate Top Stocks
-
-  // Populate Top Crypto
+  // Get Top 10 Crypto from API
   let topCrypto = await getTopCrypto();
-  console.log(topCrypto);
-  // No Error -> Continue
+
+  // No Error in API Response -> Continue
   if (topCrypto.error === false) {
     let cryptoList = '';
 
-    // This will loop through the returned Data Array
-    topCrypto.data.forEach((element) => {
-      // Creating a string of the following
-      cryptoList += ` 
+    // This will loop through Data Array
+    topCrypto.Data.forEach((element, index) => {
+      // Concatening an HTML String of the following
+      cryptoList += `
         <tr>
-            <th scope="row">${element.rank}</th>
-            <td>${element.name}</td>
-            <td>${element.symbol}</td>
-            <td>${moment(element.last_historical_data).format(
-              'HH[:]mm [-] MM[/]DD[/]YY'
-            )}</td>
+          <th scope="row">${index + 1}</th>
+          <td>${element.CoinInfo.FullName}</td>
+          <td>${element.CoinInfo.Name}</td>
+          <td>${element.DISPLAY.USD.PRICE}</td>
         </tr>
-        `;
-    });
 
-    // Append list into table body
-    $('#cryptoList').html(cryptoList);
+      `;
+
+      // Append list into table body
+      $('#cryptoList').html(cryptoList);
+    });
   }
 
   // Get Crypto if no Crypto check for Stock.
