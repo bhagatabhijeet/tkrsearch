@@ -1,5 +1,5 @@
 // Import functions
-import { getStock, getCompany, getTopActive } from './scripts/stock.js';
+import { getStock, getCompany, getTopStocks } from './scripts/stock.js';
 import { getTopCrypto, getCryptoList } from './scripts/marketcoin.js';
 
 let stockSymbols = 'AAPL';
@@ -10,7 +10,30 @@ $('document').ready(async () => {
   // TODO -> Use better API
   // let cryptoData = getCryptoList('5000');
 
+
   // Populate Top Stocks
+  let topStocks = await getTopStocks();
+  console.log(topStocks);
+  let stockList = '';
+  let i = 1;
+
+  // This will loop through the returned Data Array
+  topStocks.forEach((element) => {
+    // Creating a string of the following
+    stockList += ` 
+      <tr>
+          <th scope="row">${i++}</th>
+          <td>${element.companyName}</td>
+          <td>${element.symbol}</td>
+          <td>${element.latestPrice}</td>
+          <td>${element.marketCap}</td>
+      </tr>
+      `;
+  });
+
+  // Append list into table body
+  $('#stockList').html(stockList);
+// }
 
   // Populate Top Crypto
   let topCrypto = await getTopCrypto();
