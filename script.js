@@ -61,6 +61,16 @@ $('document').ready(async () => {
       console.log(`Stocks`);
       response = await getStock(cSymbol);
       console.log(response);
+      $('.panelLeft').hide();
+      $('.panelRight').hide();
+      $('#stockName').text(response.quote.companyName);
+      $('#stockTicker').text(response.quote.symbol);
+      $('#stockPrice').text('$' + response.quote.latestPrice);
+      $('#stockOpen').text('$' + response.quote.open);
+      $('#stockHigh').text('$' + response.quote.high);
+      $('#stockLow').text('$' + response.quote.low);
+      $('#stockResults').show();
+      $('#searchInput').val("");
     } else if ($('#defaultInline2').prop('checked')) {
       response = await getCryptoBySymbol(cSymbol);
       if(response.HasWarning){
