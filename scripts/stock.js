@@ -9,6 +9,13 @@ export async function getStock(stockSymbols) {
   await $.ajax({
     url: stockURL,
     method: 'GET',
+    statusCode: {
+      // In case invalid symbol need to alert user
+      404: function () {
+        console.clear();
+        console.log('jeffs 404');
+      }
+    }
   }).then(function (stockData) {
     console.log(stockData);
     response = stockData;
