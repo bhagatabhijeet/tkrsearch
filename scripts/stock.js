@@ -1,6 +1,3 @@
-// Temporary value (need input from searchbox)
-let stockSymbols = 'AAPL';
-
 // Stock API call
 export async function getStock(stockSymbols) {
   const stockApiKey = 'pk_9eb49acc515249ba85d431d6a16d502b';
@@ -12,12 +9,12 @@ export async function getStock(stockSymbols) {
     statusCode: {
       // In case invalid symbol need to alert user
       404: function () {
-        console.clear();
+        // console.clear(); // Don't use this <- 📛
         console.log('jeffs 404');
-      }
-    }
+      },
+    },
   }).then(function (stockData) {
-    console.log(stockData);
+    // console.log(stockData);
     response = stockData;
   });
   return response;
@@ -25,6 +22,7 @@ export async function getStock(stockSymbols) {
 
 // Gets company data
 export async function getCompany(stockSymbols) {
+  console.log(stockSymbols);
   const stockApiKey = 'pk_9eb49acc515249ba85d431d6a16d502b';
   const companyURL = `https://cloud.iexapis.com/v1/stock/${stockSymbols}/company?token=${stockApiKey}`;
   let response = {};
@@ -32,7 +30,7 @@ export async function getCompany(stockSymbols) {
     url: companyURL,
     method: 'GET',
   }).then(function (companyData) {
-    console.log(companyData);
+    // console.log(companyData);
     response = companyData;
   });
   return companyData;
@@ -47,7 +45,7 @@ export async function getTopStocks() {
     url: topURL,
     method: 'GET',
   }).then(function (topStocks) {
-    console.log(topStocks);
+    // console.log(topStocks);
     response = topStocks;
   });
   return response;
