@@ -40,7 +40,7 @@
         <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
         <label class="custom-control-label" for="defaultInline2">Crypto</label>
       </div>
-      <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit" Checked>Search</button>
+      <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit">Search</button>
     </form>
   </div>
   <!-- Main Panels -->
@@ -55,13 +55,13 @@
             </h3>
             <!-- Left Panel Table -->
             <div>
-              <table class="table table-sm">
+              <table class="table table-sm table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Price $</th>
+                    <th scope="col"  class="text-right">Price $</th>
                   </tr>
                 </thead>
                 <tbody id="stockList">
@@ -114,13 +114,13 @@
             </h3>
             <!-- Right panel table -->
             <div>
-              <table class="table table-sm">
+              <table class="table table-sm table-striped">
                 <thead>
                   <tr>
                     <th scope="col">Rank</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Price $</th>
+                    <th scope="col" class="text-right">Price $</th>
                   </tr>
                 </thead>
                 <tbody id="cryptoList">
