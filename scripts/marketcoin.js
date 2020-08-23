@@ -13,7 +13,7 @@ export async function getTopCrypto(limit = '10') {
   let response = {};
 
   await $.get({
-    url: ``,
+    url: cryptoTopURL,
   })
     .then(({ Data }) => {
       response = { Data, error: false };

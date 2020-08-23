@@ -6,95 +6,95 @@ current color index:
 #d9dbdf - logo letters border
 #5d9eda - another color for theme this is used in letters t,k,r in logo 
 */
-.navbar-custom { 
-    /*note in RGB This color is  R:51 G:67 B:85 */
-    background-color:#3d46cd !important; 
-    height: 45px;
-    padding: 0% 20px;
-    color:whitesmoke;
+.navbar-custom {
+  /*note in RGB This color is  R:51 G:67 B:85 */
+  background-color: #3d46cd !important;
+  height: 45px;
+  padding: 0% 20px;
+  color: whitesmoke;
 }
-a.navbar-brand{
-    color: white;
-}
-
-a.navbar-brand:hover{
-    color:whitesmoke;
+a.navbar-brand {
+  color: white;
 }
 
-#searchForm{
-    margin-top: 55px;
-    width:60%;
-    margin-left: auto;
-    margin-right: auto;
+a.navbar-brand:hover {
+  color: whitesmoke;
+}
+
+#searchForm {
+  margin-top: 55px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* remove horizontal scroll */
-html, body {
-    max-width: 100%;
-    height: 100%;
-    overflow-x: hidden;
+html,
+body {
+  max-width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 /* background image */
 body {
-    /* The image used */
-    background-image: url("https://images.freeimages.com/images/large-previews/2a7/polly-background-1631651.jpg");
-    background-size: cover;
-  }
+  /* The image used */
+  background-image: url('https://images.freeimages.com/images/large-previews/2a7/polly-background-1631651.jpg');
+  background-size: cover;
+}
 
 /* formatting the top search bar */
 .form-inline {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* formatting the panels */
 .panelLeft {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .panelRight {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .table {
-    color: white;
+  color: white;
 }
 
 #footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    color: white;
-    line-height: 30px;
-    font-size: smaller;
-    text-align: center;
-    vertical-align: text-bottom;
- }
- 
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  line-height: 30px;
+  font-size: smaller;
+  text-align: center;
+  vertical-align: text-bottom;
+}
 
- .custom-control-label {
-    color: white;
- }
+.custom-control-label {
+  color: white;
+}
 
- #stockResults {
-    display: none;
-    color: white;
-    margin-bottom: 2rem;
-    width:50%
- }
- #cryptoResults {
-    display: none;
-    color: white;
-    margin-bottom: 2rem;
-    width:50%
- }
+#stockResults {
+  display: none;
+  color: white;
+  margin-bottom: 2rem;
+  width: 50%;
+}
+#cryptoResults {
+  display: none;
+  color: white;
+  margin-bottom: 2rem;
+  width: 50%;
+}
 
- .container {
-    display: flex;
-    justify-content: center;
- }
+.container {
+  display: flex;
+  justify-content: center;
+}
