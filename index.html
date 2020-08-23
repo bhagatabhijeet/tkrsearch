@@ -22,14 +22,14 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar navbar-sm navbar-custom">
-    <a class="navbar-brand" href="#"><img src="images/logo_large.png"></a>
+  <nav class="navbar fixed-top navbar-custom">
+    <a class="navbar-brand" href="#"><sup>tkr</sup><u>S</u>earch</a>
   </nav>
   <!-- Search Bar -->
-  <div class="form">
+  <div class="form" id="searchForm">
     <form class="form-inline mr-auto">
       <!-- Need to add a label, placeholders are fancy bad for Accessibility. So an invisible label would go here -->
-      <input id="searchInput" class="form-control mr-sm-2" type="text" placeholder="Find Stocks or Crypto" aria-label="Search">
+      <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Find Stocks or Crypto" aria-label="Search">
       <!-- Default inline 1 for stocks-->
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked>
@@ -40,7 +40,7 @@
         <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
         <label class="custom-control-label" for="defaultInline2">Crypto</label>
       </div>
-      <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit" Checked>Search</button>
+      <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit">Search</button>
     </form>
   </div>
   <!-- Main Panels -->
@@ -55,13 +55,13 @@
             </h3>
             <!-- Left Panel Table -->
             <div>
-              <table class="table table-sm">
+              <table class="table table-sm table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Price $</th>
+                    <th scope="col"  class="text-right">Price $</th>
                   </tr>
                 </thead>
                 <tbody id="stockList">
@@ -114,13 +114,13 @@
             </h3>
             <!-- Right panel table -->
             <div>
-              <table class="table table-sm">
+              <table class="table table-sm table-striped">
                 <thead>
                   <tr>
                     <th scope="col">Rank</th>
                     <th scope="col">Name</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Price $</th>
+                    <th scope="col" class="text-right">Price $</th>
                   </tr>
                 </thead>
                 <tbody id="cryptoList">
@@ -196,11 +196,12 @@
     </div>
 
     <!-- Footer -->
-    <footer id="footer" style="text-align: center;position: 0%;width: 100%;background-color:#334355; height: 30px;">
-      <div>
-        <p>GitHub Project Details <a href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
-        </p>
-      </div>
+    <footer id="footer">
+      <!-- <div> -->
+        <!-- <p> -->
+          GitHub Project Details <a href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
+        <!-- </p> -->
+      <!-- </div> -->
     </footer>
 
     <!-- script includes for MDB 4.19.1 -->
