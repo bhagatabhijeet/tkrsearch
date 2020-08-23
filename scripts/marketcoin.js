@@ -27,7 +27,7 @@ export async function getTopCrypto(limit = '10') {
 /*
  * @param {string} cSymbol - Must get a Symbol
  */
-export async function getCryptoBy(cSymbol) {
+export async function getCryptoBySymbol(cSymbol) {
   console.log(`Getting data for ${cSymbol}`);
   const cryptoGetcSymbolURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cSymbol}&tsyms=USD&api_key=${cryptokey}`;
   let response = {};
@@ -36,7 +36,7 @@ export async function getCryptoBy(cSymbol) {
     url: cryptoGetcSymbolURL,
   })
     .then((data) => {
-      response = { data, error: false };
+      response = data;
     })
     .fail((err) => {
       console.log(err.Message);

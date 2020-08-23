@@ -1,9 +1,7 @@
 
-import { getTopCrypto, getCryptoBy } from './scripts/marketcoin.js';
+// Import functions
+import { getTopCrypto, getCryptoBySymbol } from './scripts/marketcoin.js';
 import { getStock, getCompany, getTopStocks } from './scripts/stock.js';
-
-let stockSymbols = 'AAPL';
-// getStock('AAPL');
 
 $('document').ready(async () => {
   // Populate Top Stocks
@@ -72,9 +70,10 @@ $('document').ready(async () => {
       $('#stockResults').show();
       $('#searchInput').val("");
     } else if ($('#defaultInline2').prop('checked')) {
+      let cSymbol = $('#searchInput').val().toUpperCase();
       response = await getCryptoBySymbol(cSymbol);
       if(response.HasWarning){
-        console.log(response);
+        console.log(response.);
       }
 
 
