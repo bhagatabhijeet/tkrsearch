@@ -9,12 +9,11 @@ export async function getStock(stockSymbols) {
     statusCode: {
       // In case invalid symbol need to alert user
       404: function () {
-        // console.clear(); // Don't use this <- 📛
         console.log('jeffs 404');
       },
     },
   }).then(function (stockData) {
-    // console.log(stockData);
+    console.log(stockData);
     response = stockData;
   });
   return response;
@@ -45,7 +44,7 @@ export async function getTopStocks() {
     url: topURL,
     method: 'GET',
   }).then(function (topStocks) {
-    // console.log(topStocks);
+    console.log(topStocks);
     response = topStocks;
   });
   return response;

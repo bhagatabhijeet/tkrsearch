@@ -6,22 +6,19 @@ $('document').ready(async () => {
   // Populate Top Stocks
   let topStocks = await getTopStocks();
   let stockList = '';
-
+  $('#stockList').empty();
   // This will loop through the returned Data Array
   topStocks.forEach((element, i) => {
-    // Creating a string of the following
-    stockList += `
-       <tr>
-           <td>${i + 1}</td>
-           <td>${element.companyName}</td>
-           <td>${element.symbol}</td>
-           <td style='text-align: right;'>$ ${element.latestPrice}</td>
-       </tr>
-       `;
+    console.log(element.symbol)
+    const tr =  $("<tr>").attr("value", element.symbol);
+    const rank = $("<td>").text(i + 1);
+    const sName = $("<td>").text(element.companyName);
+    const sym = $("<td>").text(element.symbol);
+    const price = $("<td>").text('$' + element.latestPrice);
+    tr.append(rank, sName, sym, price);
+    $('#stockList').append(tr);
   });
 
-  // Append list into table body
-  $('#stockList').html(stockList);
   var stockTable = new Tabulator("#stockTable", {
     layout: "fitDataStretch",//"fitDataStretch",
     columns: [
@@ -38,9 +35,7 @@ $('document').ready(async () => {
      }
   });
 
-  // alert(stockTable.columns[0].title);
-
-  // Get Top 10 Crypto from API
+  // // Get Top 10 Crypto from API
   let topCrypto = await getTopCrypto();
   // No Error in API Response -> Continue
   if (topCrypto.error === false) {
@@ -54,7 +49,7 @@ $('document').ready(async () => {
           <td>${index + 1}</td>
           <td>${element.CoinInfo.FullName}</td>
           <td>${element.CoinInfo.Name}</td>
-          <td style='text-align: right;'>${element.DISPLAY.USD.PRICE}</td>
+          <td>${element.DISPLAY.USD.PRICE}</td>
         </tr>
       `;
 
@@ -102,18 +97,8 @@ $('document').ready(async () => {
         // If Stocks Radio is Checked
         if ($('#defaultInline1').prop('checked')) {
           // Get Stock Data
-          response = await getStock(cSymbol);
-
-          //  Set Stock Details on new panel
-          $('#stockName').text(response.quote.companyName);
-          $('#stockTicker').text(response.quote.symbol);
-          $('#stockPrice').text('$' + response.quote.latestPrice);
-          $('#stockOpen').text('$' + response.quote.open);
-          $('#stockHigh').text('$' + response.quote.high);
-          $('#stockLow').text('$' + response.quote.low);
-          //  Show Stock Panel
-          $('#stockResults').show();
-          $('#searchInput').val('');
+          let response = await getStock(cSymbol);
+          renderStock(response);
         }
         // If Crypto Radio is Checked
         else if ($('#defaultInline2').prop('checked')) {
@@ -156,6 +141,33 @@ $('document').ready(async () => {
       console.log(error);
     }
   });
+
+  $("#stockList").click(async function (event) {
+    $('.panelLeft').hide();
+    $('.panelRight').hide();
+    $('#stockResults').hide();
+    $('#cryptoResults').hide();
+    // console.log(event.target.parentNode.getAttribute('value'));
+    let stockSymbols = event.target.parentNode.getAttribute('value');
+    
+    let response = await getStock(stockSymbols);
+    console.log(response);
+    renderStock(response);
+  });
+
+  // Render Stock Details on new panel
+  function renderStock(response){
+          $('#stockName').text(response.quote.companyName);
+          $('#stockTicker').text(response.quote.symbol);
+          $('#stockPrice').text('$' + response.quote.latestPrice);
+          $('#stockOpen').text('$' + response.quote.previousClose);
+          $('#stockHigh').text('$' + response.quote.week52High);
+          $('#stockLow').text('$' + response.quote.week52Low);
+          //  Show Stock Panel
+          $('#stockResults').show();
+          $('#searchInput').val('');
+  }
+
 }); // End of Doc.ready()
 
 function showDefault() {
