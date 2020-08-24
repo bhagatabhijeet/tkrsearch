@@ -12,16 +12,33 @@ $('document').ready(async () => {
     // Creating a string of the following
     stockList += `
        <tr>
-           <th scope="row">${i + 1}</th>
+           <td>${i + 1}</td>
            <td>${element.companyName}</td>
            <td>${element.symbol}</td>
-           <td style='text-align: right;'>$${element.latestPrice}</td>
+           <td style='text-align: right;'>$ ${element.latestPrice}</td>
        </tr>
        `;
   });
 
   // Append list into table body
   $('#stockList').html(stockList);
+  var stockTable = new Tabulator("#stockTable", {
+    layout: "fitDataStretch",//"fitDataStretch",
+    columns: [
+      { title: "#" },
+      { title: "Name" },
+      { title: "Symbol" },
+      { title: "Price $", hozAlign: "right"}
+    ],
+    
+    rowFormatter:function(row){   
+      row.getElement().style.color = "#0b33d3"; //apply css change to row element
+      row.getElement().style.fontWeight = "400";
+      
+     }
+  });
+
+  // alert(stockTable.columns[0].title);
 
   // Get Top 10 Crypto from API
   let topCrypto = await getTopCrypto();
@@ -34,15 +51,29 @@ $('document').ready(async () => {
       // Concatening an HTML String of the following
       cryptoList += `
         <tr>
-          <th scope="row">${index + 1}</th>
+          <td>${index + 1}</td>
           <td>${element.CoinInfo.FullName}</td>
           <td>${element.CoinInfo.Name}</td>
-          <td>$${element.DISPLAY.USD.PRICE}</td>
+          <td style='text-align: right;'>${element.DISPLAY.USD.PRICE}</td>
         </tr>
       `;
 
       // Append list into table body
       $('#cryptoList').html(cryptoList);
+    });
+    var cryptoTable = new Tabulator("#cryptoTable", {
+      layout: "fitDataStretch",
+      columns: [
+        { title: "Rank" },
+        { title: "Name" },
+        { title: "Symbol" },
+        { title: "Price $", hozAlign: "right" }
+      ],    
+    rowFormatter:function(row){   
+      row.getElement().style.color = "#0b33d3"; //apply css change to row element
+      row.getElement().style.fontWeight = "400";
+      
+     }
     });
   }
 
