@@ -10,7 +10,7 @@ $('document').ready(async () => {
   // This will loop through the returned Data Array
   topStocks.forEach((element, i) => {
     console.log(element.symbol)
-    const tr =  $("<tr>").attr("value", element.symbol);
+    const tr = $("<tr>").attr("value", element.symbol);
     const rank = $("<td>").text(i + 1);
     const sName = $("<td>").text(element.companyName);
     const sym = $("<td>").text(element.symbol);
@@ -25,14 +25,29 @@ $('document').ready(async () => {
       { title: "#" },
       { title: "Name" },
       { title: "Symbol" },
-      { title: "Price $", hozAlign: "right"}
+      { title: "Price $", hozAlign: "right" }
     ],
-    
-    rowFormatter:function(row){   
+    rowFormatter: function (row) {
       row.getElement().style.color = "#0b33d3"; //apply css change to row element
       row.getElement().style.fontWeight = "400";
-      
-     }
+    },
+      rowClick: async function (e, row) {
+        //e - the click event object
+        //row - row component
+        console.log("clicked " + row._row.data.symbol);
+        
+        $('.panelLeft').hide();
+        $('.panelRight').hide();
+        $('#stockResults').hide();
+        $('#cryptoResults').hide();
+        // console.log(event.target.parentNode.getAttribute('value'));
+        // let stockSymbols = event.target.parentNode.getAttribute('value');
+        let stockSymbols = row._row.data.symbol;
+
+        let response = await getStock(stockSymbols);
+        console.log(response);
+        renderStock(response);
+      }
   });
 
   // // Get Top 10 Crypto from API
@@ -63,12 +78,11 @@ $('document').ready(async () => {
         { title: "Name" },
         { title: "Symbol" },
         { title: "Price $", hozAlign: "right" }
-      ],    
-    rowFormatter:function(row){   
-      row.getElement().style.color = "#0b33d3"; //apply css change to row element
-      row.getElement().style.fontWeight = "400";
-      
-     }
+      ],
+      rowFormatter: function (row) {
+        row.getElement().style.color = "#0b33d3"; //apply css change to row element
+        row.getElement().style.fontWeight = "400";
+      }
     });
   }
 
@@ -142,30 +156,31 @@ $('document').ready(async () => {
     }
   });
 
-  $("#stockList").click(async function (event) {
-    $('.panelLeft').hide();
-    $('.panelRight').hide();
-    $('#stockResults').hide();
-    $('#cryptoResults').hide();
-    // console.log(event.target.parentNode.getAttribute('value'));
-    let stockSymbols = event.target.parentNode.getAttribute('value');
-    
-    let response = await getStock(stockSymbols);
-    console.log(response);
-    renderStock(response);
-  });
+  /*** NO LONGER REQUIRED --- SEE LINE #34 */
+  // $("#stockList").click(async function (event) {
+  //   $('.panelLeft').hide();
+  //   $('.panelRight').hide();
+  //   $('#stockResults').hide();
+  //   $('#cryptoResults').hide();
+  //   // console.log(event.target.parentNode.getAttribute('value'));
+  //   let stockSymbols = event.target.parentNode.getAttribute('value');
+
+  //   let response = await getStock(stockSymbols);
+  //   console.log(response);
+  //   renderStock(response);
+  // });
 
   // Render Stock Details on new panel
-  function renderStock(response){
-          $('#stockName').text(response.quote.companyName);
-          $('#stockTicker').text(response.quote.symbol);
-          $('#stockPrice').text('$' + response.quote.latestPrice);
-          $('#stockOpen').text('$' + response.quote.previousClose);
-          $('#stockHigh').text('$' + response.quote.week52High);
-          $('#stockLow').text('$' + response.quote.week52Low);
-          //  Show Stock Panel
-          $('#stockResults').show();
-          $('#searchInput').val('');
+  function renderStock(response) {
+    $('#stockName').text(response.quote.companyName);
+    $('#stockTicker').text(response.quote.symbol);
+    $('#stockPrice').text('$' + response.quote.latestPrice);
+    $('#stockOpen').text('$' + response.quote.previousClose);
+    $('#stockHigh').text('$' + response.quote.week52High);
+    $('#stockLow').text('$' + response.quote.week52Low);
+    //  Show Stock Panel
+    $('#stockResults').show();
+    $('#searchInput').val('');
   }
 
 }); // End of Doc.ready()
