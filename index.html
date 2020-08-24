@@ -22,140 +22,103 @@
 
 <body>
   <!-- navbar -->
-  <nav class="navbar fixed-top navbar-custom">
+  <nav class="navbar fixed-top">
     <a class="navbar-brand" href="#"><sup>tkr</sup><u>S</u>earch</a>
   </nav>
-  <!-- Search Bar -->
-  <div class="form" id="searchForm">
-    <form class="form-inline mr-auto">
+  <div class="container">
+    <!-- Search Bar -->
+    <!-- <div class="form" id="searchForm"> -->
+    <form class="form-inline">
       <!-- Need to add a label, placeholders are fancy bad for Accessibility. So an invisible label would go here -->
-      <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Find Stocks or Crypto" aria-label="Search">
+      <div class="md-form">
+        <input id="searchInput" class="form-control text-center" type="search"
+          placeholder="Stock or Crypto Ticker" aria-label="Search">
+      </div>
       <!-- Default inline 1 for stocks-->
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked>
-        <label class="custom-control-label" for="defaultInline1">Stocks</label>
+        <label class="custom-control-label" for="defaultInline1">Stock</label>
       </div>
       <!-- Default inline 2 for crypto-->
       <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
         <label class="custom-control-label" for="defaultInline2">Crypto</label>
       </div>
-      <button id="searchBtn" class="btn blue-gradient btn-rounded btn-sm" type="submit">Search</button>
+      <button id="searchBtn" class="btn btn-sm mb-20" type="submit">Search</button>
     </form>
-  </div>
-  <!-- Main Panels -->
-  <!-- Left Panel -->
-  <div class="row mb-4">
-    <div class="col-md-6 mb-4">
-      <div class="panelLeft">
-        <div class="text-white text-center align-items-center blue-gradient py-5 px-4">
-          <div>
-            <h3 class="mb-4 mt-4 font-weight-bold">
-              <strong>Top Active Stocks</strong>
-            </h3>
-            <!-- Left Panel Table -->
+    <!-- </div> -->
+    <!-- Main Panels -->
+    <!-- Left Panel -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panelLeft">
+          <div class="text-center align-items-center">
             <div>
-              <table class="table table-sm table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Symbol</th>
-                    <th scope="col"  class="text-right">Price $</th>
-                  </tr>
-                </thead>
-                <tbody id="stockList">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h4>
+                <strong>Top Active Stocks</strong>
+              </h4>
+              <!-- Left Panel Table -->
+              <div>
+                <table class="table table-sm table-striped" id="stockTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Symbol</th>
+                      <th scope="col" class="text-right">Price $</th>
+                    </tr>
+                  </thead>
+                  <tbody id="stockList">
+                    <!-- Sample data. Actual data fetched using api 
+                    <tr>
+                      <td>1</td>
+                      <td>Apple</td>
+                      <td>APPL</td>
+                      <td>$ 500</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Right Panel -->
-    <div class="col-md-6 mb-4">
-      <div class="panelRight">
-        <!-- Content -->
-        <div class="text-white text-center align-items-center aqua-gradient py-5 px-4">
-          <div>
-            <h3 class="mb-4 mt-4 font-weight-bold">
-              <strong>Top Crypto by Volume</strong>
-
-            </h3>
-            <!-- Right panel table -->
+      <!-- Right Panel -->
+      <div class="col-md-6">
+        <div class="panelRight">
+          <!-- Content -->
+          <div class="text-center align-items-center">
             <div>
-              <table class="table table-sm table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Symbol</th>
-                    <th scope="col" class="text-right">Price $</th>
-                  </tr>
-                </thead>
-                <tbody id="cryptoList">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Apple</td>
-                    <td>APPL</td>
-                    <td>$500</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h4>
+                <strong>Top Crypto by Volume</strong>
+              </h4>
+              <!-- Right panel table -->
+              <div>
+                <table class="table table-sm table-striped" id="cryptoTable">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Name</th>
+                      <th>Symbol</th>
+                      <th class="text-right">Price $</th>
+
+                      <!-- <th scope="col">Rank</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Symbol</th>
+                      <th scope="col" class="text-right">Price $</th> -->
+                    </tr>
+                  </thead>
+                  <tbody id="cryptoList">
+                      <!-- Sample data. Actual data fetched using api 
+                    <tr>
+                      <td>1</td>
+                      <td>Apple</td>
+                      <td>APPL</td>
+                      <td>$ 500</td> -->
+                    </tr>                    
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -164,43 +127,43 @@
     <!-- End main panels -->
 
     <!-- Results Containers -->
-      <!-- Stocks Results -->
-      <div class="container">
-        <div class="card blue-gradient" id="stockResults">
-          <div class="card-header align-text-top" id="stockNameInfo">                  
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item blue-gradient">
-              <span>Stock Name: </span>
-              <span id="stockName"></span>
-            </li>
-            <li class="list-group-item blue-gradient">
-              <span>Stock Ticker: </span>
-              <span id="stockTicker"></span>
-            </li>
-            <li class="list-group-item blue-gradient">
-              <span>Stock Price: </span>
-              <span id="stockPrice"></span>
-            </li>
-            <li class="list-group-item blue-gradient">
-              <span>Stock Open: </span>
-              <span id="stockOpen"></span>
-            </li>
-            <li class="list-group-item blue-gradient">
-              <span>Stock High: </span>
-              <span id="stockHigh"></span>
-            </li>
-              <li class="list-group-item blue-gradient">
-                <span>Stock Low: </span>
-                <span id="stockLow"></span>
-            </li>
-          </ul>
-        </div>   
+    <!-- Stocks Results -->
+    <div class="resultContainer">
+      <div class="card blue-gradient" id="stockResults">
+        <div class="card-header align-text-top" id="stockNameInfo">
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item blue-gradient">
+            <span>Stock Name: </span>
+            <span id="stockName"></span>
+          </li>
+          <li class="list-group-item blue-gradient">
+            <span>Stock Ticker: </span>
+            <span id="stockTicker"></span>
+          </li>
+          <li class="list-group-item blue-gradient">
+            <span>Stock Price: </span>
+            <span id="stockPrice"></span>
+          </li>
+          <li class="list-group-item blue-gradient">
+            <span>Stock Open: </span>
+            <span id="stockOpen"></span>
+          </li>
+          <li class="list-group-item blue-gradient">
+            <span>Stock High: </span>
+            <span id="stockHigh"></span>
+          </li>
+          <li class="list-group-item blue-gradient">
+            <span>Stock Low: </span>
+            <span id="stockLow"></span>
+          </li>
+        </ul>
       </div>
+    </div>
     <!-- Crypto Results -->
-    <div class="container">
+    <div class="resultContainer">
       <div class="card aqua-gradient" id="cryptoResults">
-        <div class="card-header align-text-top" id="cryptoNameInfo">                  
+        <div class="card-header align-text-top" id="cryptoNameInfo">
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item aqua-gradient">
@@ -224,36 +187,32 @@
             <span id="cryptoLow"></span>
           </li>
         </ul>
-      </div>   
+      </div>
     </div>
+  </div>
+  <!-- Footer -->
+  <footer id="footer">
+    GitHub Project Details <a href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i
+        class="fab fa-github"></i></a>
+  </footer>
 
-    <!-- Footer -->
-    <footer id="footer">
-      <!-- <div> -->
-        <!-- <p> -->
-          GitHub Project Details <a href="https://github.com/bhagatabhijeet/tkrsearch" target="_blank"><i class="fab fa-github"></i></a>
-        <!-- </p> -->
-      <!-- </div> -->
-    </footer>
-
-    <!-- script includes for MDB 4.19.1 -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-    <!-- Tabulator Script -->
-    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
-    <!-- Moment JS -->
-    <script src="./scripts/moment.js"></script>
-    <!-- Main Script -->
-    <script type="module" src="./script.js"></script>
+  <!-- script includes for MDB 4.19.1 -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  <!-- Tabulator Script -->
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.7.2/dist/js/tabulator.min.js"></script>
+  <!-- Moment JS -->
+  <script src="./scripts/moment.js"></script>
+  <!-- Main Script -->
+  <script type="module" src="./script.js"></script>
 
 </body>
 
