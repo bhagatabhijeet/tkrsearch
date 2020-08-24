@@ -2,75 +2,88 @@
 overall color consistency is to be maintained.
 current color index:
 #334355 - navbar background
-#ffffff - (white) used in logo
+#ffffff - (whitesmoke) used in logo
 #d9dbdf - logo letters border
 #5d9eda - another color for theme this is used in letters t,k,r in logo 
 */
-.navbar-custom {
+.navbar{
   /*note in RGB This color is  R:51 G:67 B:85 */
-  background-color: #3d46cd !important;
+  background-color:#3d46cd !important;
   height: 45px;
-  padding: 0% 20px;
-  color: whitesmoke;
+  /* padding: 0% 20px; */
+  color: red;
+  background-image: url("../images/blueGraph.jpg") !important;
+  background-size: cover;  
 }
 a.navbar-brand {
-  color: white;
+  color: whitesmoke;
 }
 
 a.navbar-brand:hover {
-  color: whitesmoke;
+  color: whitesmokesmoke;
 }
 
-#searchForm {
-  margin-top: 55px;
-  width: 60%;
+.form-inline {
+  /* margin-top: 45px; */
+  /* width: 50%; */
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+
+
 /* remove horizontal scroll */
-html,
+/* html,
 body {
   max-width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
+  height: 100%; */
+  /* overflow-x: hidden; */
+/* } */
 
 /* background image */
 body {
   /* The image used */
-  background-image: url('https://images.freeimages.com/images/large-previews/2a7/polly-background-1631651.jpg');
-  background-size: cover;
+  /* background-image: url('https://images.freeimages.com/images/large-previews/2a7/polly-background-1631651.jpg');
+  background-size: cover; */
 }
 
 /* formatting the top search bar */
-.form-inline {
+/* .form-inline {
   margin-top: 2rem;
   margin-bottom: 2rem;
   display: flex;
   justify-content: center;
-}
+} */
 
+.container{
+  margin-top: 45px;
+  position: relative;
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* formatting the panels */
 .panelLeft {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem; */
+  /* margin-right: 1rem; */
 }
 
 .panelRight {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem; */
+  /* margin-right: 1rem; */
 }
 
-.table {
-  color: white;
-}
+/* .table {
+  color: whitesmoke;
+} */
 
 #footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
-  color: white;
+  color:#0b33d3;
   line-height: 30px;
   font-size: smaller;
   text-align: center;
@@ -78,23 +91,37 @@ body {
 }
 
 .custom-control-label {
-  color: white;
+  color:#0b33d3;
+  font-weight: 400;
 }
 
 #stockResults {
   display: none;
-  color: white;
+  color: whitesmoke;
   margin-bottom: 2rem;
   width: 50%;
 }
 #cryptoResults {
   display: none;
-  color: white;
+  color: whitesmoke;
   margin-bottom: 2rem;
   width: 50%;
 }
 
-.container {
+.resultContainer {
   display: flex;
   justify-content: center;
+}
+
+#searchBtn{
+  background-color: #0b33d3;
+  color:whitesmoke;
+}
+
+
+@media only screen and (max-width:411px){
+
+  .form-inline{
+    width: 80%;
+  }  
 }

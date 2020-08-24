@@ -19,6 +19,22 @@ $('document').ready(async () => {
     $('#stockList').append(tr);
   });
 
+  var stockTable = new Tabulator("#stockTable", {
+    layout: "fitDataStretch",//"fitDataStretch",
+    columns: [
+      { title: "#" },
+      { title: "Name" },
+      { title: "Symbol" },
+      { title: "Price $", hozAlign: "right"}
+    ],
+    
+    rowFormatter:function(row){   
+      row.getElement().style.color = "#0b33d3"; //apply css change to row element
+      row.getElement().style.fontWeight = "400";
+      
+     }
+  });
+
   // // Get Top 10 Crypto from API
   let topCrypto = await getTopCrypto();
   // No Error in API Response -> Continue
@@ -30,7 +46,7 @@ $('document').ready(async () => {
       // Concatening an HTML String of the following
       cryptoList += `
         <tr>
-          <th scope="row">${index + 1}</th>
+          <td>${index + 1}</td>
           <td>${element.CoinInfo.FullName}</td>
           <td>${element.CoinInfo.Name}</td>
           <td>${element.DISPLAY.USD.PRICE}</td>
@@ -39,6 +55,20 @@ $('document').ready(async () => {
 
       // Append list into table body
       $('#cryptoList').html(cryptoList);
+    });
+    var cryptoTable = new Tabulator("#cryptoTable", {
+      layout: "fitDataStretch",
+      columns: [
+        { title: "Rank" },
+        { title: "Name" },
+        { title: "Symbol" },
+        { title: "Price $", hozAlign: "right" }
+      ],    
+    rowFormatter:function(row){   
+      row.getElement().style.color = "#0b33d3"; //apply css change to row element
+      row.getElement().style.fontWeight = "400";
+      
+     }
     });
   }
 
