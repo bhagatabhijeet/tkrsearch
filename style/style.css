@@ -1,20 +1,11 @@
-/*
-overall color consistency is to be maintained.
-current color index:
-#334355 - navbar background
-#ffffff - (whitesmoke) used in logo
-#d9dbdf - logo letters border
-#5d9eda - another color for theme this is used in letters t,k,r in logo 
-*/
 .navbar{
-  /*note in RGB This color is  R:51 G:67 B:85 */
   background-color:#3d46cd !important;
-  height: 45px;
-  /* padding: 0% 20px; */
+  height: 45px; 
   color: red;
   background-image: url("../images/blueGraph.jpg") !important;
   background-size: cover;  
 }
+
 a.navbar-brand {
   color: whitesmoke;
 }
@@ -23,39 +14,12 @@ a.navbar-brand:hover {
   color: whitesmokesmoke;
 }
 
-.form-inline {
-  /* margin-top: 45px; */
-  /* width: 50%; */
+.form-inline { 
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
   flex-wrap: wrap;
 }
-
-
-
-/* remove horizontal scroll */
-/* html,
-body {
-  max-width: 100%;
-  height: 100%; */
-  /* overflow-x: hidden; */
-/* } */
-
-/* background image */
-body {
-  /* The image used */
-  /* background-image: url('https://images.freeimages.com/images/large-previews/2a7/polly-background-1631651.jpg');
-  background-size: cover; */
-}
-
-/* formatting the top search bar */
-/* .form-inline {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
-} */
 
 .container{
   margin-top: 45px;
@@ -64,20 +28,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-/* formatting the panels */
-.panelLeft {
-  /* margin-left: 1rem; */
-  /* margin-right: 1rem; */
-}
-
-.panelRight {
-  /* margin-left: 1rem; */
-  /* margin-right: 1rem; */
-}
-
-/* .table {
-  color: whitesmoke;
-} */
 
 #footer {
   position: relative;
@@ -98,16 +48,9 @@ body {
 #stockResults, #cryptoResults {
   display: none;
   color: #0b33d3;
-  /* margin-bottom: 2rem; */
   width: 70%;
   font-weight: 400;
 }
-/* #cryptoResults {
-  display: none;
-  color: whitesmoke;
-  margin-bottom: 2rem;
-  width: 50%;
-} */
 
 .resultContainer {
   display: flex;
@@ -124,5 +67,5 @@ body {
 
   .form-inline{
     width: 80%;
-  }  
+    }   
 }
