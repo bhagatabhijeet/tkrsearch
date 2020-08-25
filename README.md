@@ -30,10 +30,10 @@ trkSearch searches the ticker and presents the user with company profile and use
 ### Meet the team
 |||
 | --- | --- |
-|![Abhijeet Bhagat](images/abhi.png)|[<img align="left" alt="Abhijeet" width="22px" src="images/github.png"/>](https://github.com/bhagatabhijeet)|
-|[<img align="right" alt="Jeff" width="22px" src="images/github.png"/>](https://github.com/bosshogg86)|![Jeff Hogg](images/jeff.png)|
-|![Muhammad Kamran](images/muhammad.png)|[<img align="left" alt="Muhammad" width="22px" src="images/github.png"/>](https://github.com/mkamran67)|
-|[<img align="right" alt="Varune" width="22px" src="images/github.png"/>](https://github.com/vharnarine)|![Varune Harnarine](images/varune.png)|
+|![Abhijeet Bhagat](images/Abhi.png)|https://github.com/bhagatabhijeet|
+|https://github.com/bosshogg86|![Jeff Hogg](images/jeff.png)|
+|![Muhammad Kamran](images/muhammad.png)|https://github.com/mkamran67|
+|https://github.com/vharnarine|![Varune Harnarine](images/varune.png)|
 <hr/>
 
 
