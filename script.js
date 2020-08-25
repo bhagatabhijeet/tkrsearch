@@ -120,7 +120,8 @@ $('document').ready(async () => {
         // If Stocks Radio is Checked
         if ($('#defaultInline1').prop('checked')) {
           // Get Stock Data
-          response = await getStock(cSymbol);
+          response.one = await getStock(cSymbol);
+          response.two = await getCompany(cSymbol);
           renderStock(response);
         }
         // If Crypto Radio is Checked
@@ -155,12 +156,14 @@ $('document').ready(async () => {
 
   // Render Stock Details on new panel
   function renderStock(response) {
-    $('#stockName').text(response.quote.companyName);
-    $('#stockTicker').text(response.quote.symbol);
-    $('#stockPrice').text('$' + response.quote.latestPrice);
-    $('#stockOpen').text('$' + response.quote.previousClose);
-    $('#stockHigh').text('$' + response.quote.week52High);
-    $('#stockLow').text('$' + response.quote.week52Low);
+    $('#stockName').text(response.one.quote.companyName);
+    $('#stockTicker').text(response.one.quote.symbol);
+    $('#stockPrice').text('$' + response.one.quote.latestPrice);
+    $('#stockOpen').text('$' + response.one.quote.previousClose);
+    $('#stockHigh').text('$' + response.one.quote.week52High);
+    $('#stockLow').text('$' + response.one.quote.week52Low);
+    $('#stockProfile').text(response.two.description);
+    console.log(response);
     //  Show Stock Panel
     $('#stockResults').show();
     $('#searchInput').val('');

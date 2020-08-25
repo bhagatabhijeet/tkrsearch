@@ -13,6 +13,7 @@ export async function getStock(stockSymbols) {
       },
     },
   }).then(function (stockData) {
+    
     console.log(stockData);
     response = stockData;
   });
@@ -32,7 +33,7 @@ export async function getCompany(stockSymbols) {
     // console.log(companyData);
     response = companyData;
   });
-  return companyData;
+  return response;
 }
 
 // Gets top 10 active stocks
