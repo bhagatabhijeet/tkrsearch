@@ -1,13 +1,11 @@
 // Variables
-const regex = /^\s*$/;
 const cryptokey =
   '83a1421578bfc4aa4b0995785d474aeabd08e8dd93ea1ce467246ca8da9dc036';
-// let cryptoURL = `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=${limit}&tsym=USD&api_key=${cryptokey}`
-// Get top 10 crypto
 /*
  * @param {string} limit - Minimum 10, Max 100
  */
 export async function getTopCrypto(limit = '10') {
+  // Get top 10 crypto
   console.log(`Top 10 Crypto`);
   const cryptoTopURL = `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=${limit}&tsym=USD&api_key=${cryptokey}`;
   let response = {};
@@ -28,6 +26,7 @@ export async function getTopCrypto(limit = '10') {
  * @param {string} cSymbol - Must get a Symbol
  */
 export async function getCryptoBySymbol(cSymbol) {
+  // Get Crypto information by Symbol
   console.log(`Getting data for ${cSymbol}`);
   const cryptoGetcSymbolURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cSymbol}&tsyms=USD&api_key=${cryptokey}`;
   let response = {};
