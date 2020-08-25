@@ -95,18 +95,19 @@ body {
   font-weight: 400;
 }
 
-#stockResults {
+#stockResults, #cryptoResults {
+  display: none;
+  color: #0b33d3;
+  /* margin-bottom: 2rem; */
+  width: 70%;
+  font-weight: 400;
+}
+/* #cryptoResults {
   display: none;
   color: whitesmoke;
   margin-bottom: 2rem;
   width: 50%;
-}
-#cryptoResults {
-  display: none;
-  color: whitesmoke;
-  margin-bottom: 2rem;
-  width: 50%;
-}
+} */
 
 .resultContainer {
   display: flex;
