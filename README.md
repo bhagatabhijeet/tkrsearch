@@ -8,7 +8,7 @@ trkSearch searches the ticker and presents the user with company profile and use
 </div>
 <hr/>
 
-![Project](https://img.shields.io/badge/tkrSearch-%E2%9D%A4%EF%B8%8F-blue)
+[![Project](https://img.shields.io/badge/tkrSearch-%E2%9D%A4%EF%B8%8F-blue)](https://github.com/bhagatabhijeet/tkrsearch)
 [![GitHub license](https://img.shields.io/github/license/bhagatabhijeet/tkrsearch?style=plastic)](https://github.com/bhagatabhijeet/tkrsearch/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/bhagatabhijeet/tkrsearch?style=plastic)](https://github.com/bhagatabhijeet/tkrsearch/issues)
 [![GitHub stars](https://img.shields.io/github/stars/bhagatabhijeet/tkrsearch?style=plastic)](https://github.com/bhagatabhijeet/tkrsearch/stargazers)
@@ -30,7 +30,7 @@ trkSearch searches the ticker and presents the user with company profile and use
 ### Meet the team
 |||
 | --- | --- |
-|![Abhijeet Bhagat](images/Abhi.png)|https://github.com/bhagatabhijeet (Roles : Scrum master, Project maanagement and Front end developer)|
+|![Abhijeet Bhagat](images/Abhi.png)|https://github.com/bhagatabhijeet (Roles : Scrum master, Project management and Front end developer)|
 |https://github.com/bosshogg86 (Roles : Architecture and Back end developer)|![Jeff Hogg](images/jeff.png)|
 |![Muhammad Kamran](images/muhammad.png)|https://github.com/mkamran67 (Roles : Architecture and Back end developer)|
 |https://github.com/vharnarine (Roles : UI designer, Front end developer and lead documentation)|![Varune Harnarine](images/varune.png)|
