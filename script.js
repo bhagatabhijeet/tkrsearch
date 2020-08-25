@@ -3,13 +3,14 @@ import { getTopCrypto, getCryptoBySymbol } from './scripts/marketcoin.js';
 import { getStock, getCompany, getTopStocks } from './scripts/stock.js';
 
 $('document').ready(async () => {
-  // Populate Top Stocks
+  // Get Top Stocks
   let topStocks = await getTopStocks();
-  let stockList = '';
+  // Get Top 10 Crypto from API
+  let topCrypto = await getTopCrypto();
+
   $('#stockList').empty();
   // This will loop through the returned Data Array
   topStocks.forEach((element, i) => {
-    console.log(element.symbol);
     const tr = $('<tr>').attr('value', element.symbol);
     const rank = $('<td>').text(i + 1);
     const sName = $('<td>').text(element.companyName);
@@ -32,27 +33,17 @@ $('document').ready(async () => {
       row.getElement().style.fontWeight = '400';
     },
     rowClick: async function (e, row) {
-      //e - the click event object
-      //row - row component
-      console.log('clicked ' + row._row.data.symbol);
-
       $('.panelLeft').hide();
       $('.panelRight').hide();
       $('#stockResults').hide();
       $('#cryptoResults').hide();
-      // console.log(event.target.parentNode.getAttribute('value'));
-      // let stockSymbols = event.target.parentNode.getAttribute('value');
-      let stockSymbols = row._row.data.symbol;
 
-      let response = await getStock(stockSymbols);
-      console.log(response);
+      // Get Stock symbol from row object and pass it for response
+      let response = await getStock(row._row.data.symbol);
       renderStock(response);
     },
   });
 
-  // Get Top 10 Crypto from API
-  let topCrypto = await getTopCrypto();
-  // No Error in API Response -> Continue
   if (topCrypto.error === false) {
     let cryptoList = '';
 
@@ -90,7 +81,7 @@ $('document').ready(async () => {
         $('#stockResults').hide();
         $('#cryptoResults').hide();
 
-        // Show Bitcoin information based on click
+        // Get Crytpo symbol from row object and pass it for response
         renderCrypto(
           await getCryptoBySymbol(row._row.data.symbol),
           row._row.data.symbol
@@ -102,7 +93,7 @@ $('document').ready(async () => {
   // Icon Click -> Home -> Defaults
   $('.navbar-brand').on('click', showDefault);
 
-  // Search BUtton Listener
+  // Search Button Listener
   $('#searchBtn').on('click', async (e) => {
     e.preventDefault();
     $('.panelLeft').hide();
@@ -115,58 +106,51 @@ $('document').ready(async () => {
     let cSymbol = $('#searchInput').val().toUpperCase(); // Get Search Input
 
     try {
-      // Check if searchInput is empty
-      if (cSymbol !== '') {
-        // If Stocks Radio is Checked
-        if ($('#defaultInline1').prop('checked')) {
-          // Get Stock Data
-          response = await getStock(cSymbol);
-          renderStock(response);
+      // Checks for empty string -> returns => true when NOT empty
+      if (/([^\s])/.test(cSymbol)) {
+        // Check for empty spaces before or after string -> returns => true when NO empty spaces before or after
+        if (/^[^\s]+(\s+[^\s]+)*$/.test(cSymbol)) {
+          if ($('#defaultInline1').prop('checked')) {
+            // If Stocks Radio is Checked
+            // Get Stock Data by symbol
+            response = await getStock(cSymbol);
+            renderStock(response);
+          }
+          // If Crypto Radio is Checked
+          else if ($('#defaultInline2').prop('checked')) {
+            // Get Crypto Data by symbol
+            response = await getCryptoBySymbol(cSymbol);
+            renderCrypto(response, cSymbol);
+          } // if
+        } else {
+          console.log(`Cannot have spaces before or after the string.`);
+          showDefault();
         }
-        // If Crypto Radio is Checked
-        else if ($('#defaultInline2').prop('checked')) {
-          // Get Crypto Data
-          response = await getCryptoBySymbol(cSymbol);
-          renderCrypto(response, cSymbol);
-        } // if
       } else {
-        // TODO: Need a pop up for invalid input
+        console.log(`Empty string -> Invalid`);
         showDefault();
-        $('#searchInput').val('Invalid Input');
       }
     } catch (error) {
-      showDefault();
       console.log(error);
+      showDefault();
     }
   });
-
-  /*** NO LONGER REQUIRED --- SEE LINE #34 */
-  // $("#stockList").click(async function (event) {
-  //   $('.panelLeft').hide();
-  //   $('.panelRight').hide();
-  //   $('#stockResults').hide();
-  //   $('#cryptoResults').hide();
-  //   // console.log(event.target.parentNode.getAttribute('value'));
-  //   let stockSymbols = event.target.parentNode.getAttribute('value');
-  //   let response = await getStock(stockSymbols);
-  //   console.log(response);
-  //   renderStock(response);
-  // });
-
-  // Render Stock Details on new panel
-  function renderStock(response) {
-    $('#stockName').text(response.quote.companyName);
-    $('#stockTicker').text(response.quote.symbol);
-    $('#stockPrice').text('$' + response.quote.latestPrice);
-    $('#stockOpen').text('$' + response.quote.previousClose);
-    $('#stockHigh').text('$' + response.quote.week52High);
-    $('#stockLow').text('$' + response.quote.week52Low);
-    //  Show Stock Panel
-    $('#stockResults').show();
-    $('#searchInput').val('');
-  }
 }); // End of Doc.ready()
 
+// Render Stock Details on new panel
+function renderStock(response) {
+  $('#stockName').text(response.quote.companyName);
+  $('#stockTicker').text(response.quote.symbol);
+  $('#stockPrice').text('$' + response.quote.latestPrice);
+  $('#stockOpen').text('$' + response.quote.previousClose);
+  $('#stockHigh').text('$' + response.quote.week52High);
+  $('#stockLow').text('$' + response.quote.week52Low);
+  //  Show Stock Panel
+  $('#stockResults').show();
+  $('#searchInput').val('');
+}
+
+// Render Crypto
 function renderCrypto(response, cSymbol) {
   if (response.HasWarning) {
     console.log(response.Message);
@@ -192,6 +176,7 @@ function renderCrypto(response, cSymbol) {
   $('#searchInput').val('');
 }
 
+// Reset to default
 function showDefault() {
   $('#cryptoResults').hide();
   $('#stockResults').hide();

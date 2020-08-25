@@ -6,7 +6,6 @@ const cryptokey =
  */
 export async function getTopCrypto(limit = '10') {
   // Get top 10 crypto
-  console.log(`Top 10 Crypto`);
   const cryptoTopURL = `https://min-api.cryptocompare.com/data/top/totalvolfull?limit=${limit}&tsym=USD&api_key=${cryptokey}`;
   let response = {};
 
@@ -27,7 +26,6 @@ export async function getTopCrypto(limit = '10') {
  */
 export async function getCryptoBySymbol(cSymbol) {
   // Get Crypto information by Symbol
-  console.log(`Getting data for ${cSymbol}`);
   const cryptoGetcSymbolURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cSymbol}&tsyms=USD&api_key=${cryptokey}`;
   let response = {};
 
