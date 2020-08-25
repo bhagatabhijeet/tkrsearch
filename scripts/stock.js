@@ -29,7 +29,7 @@ export async function getCompany(stockSymbols) {
   }).then(function (companyData) {
     response = companyData;
   });
-  return companyData;
+  return response;
 }
 
 // Gets top 10 active stocks
