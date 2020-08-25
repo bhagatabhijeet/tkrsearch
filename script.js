@@ -33,13 +33,15 @@ $('document').ready(async () => {
       row.getElement().style.fontWeight = '400';
     },
     rowClick: async function (e, row) {
+      let response = {};
       $('.panelLeft').hide();
       $('.panelRight').hide();
       $('#stockResults').hide();
       $('#cryptoResults').hide();
 
       // Get Stock symbol from row object and pass it for response
-      let response = await getStock(row._row.data.symbol);
+      response.one = await getStock(row._row.data.symbol);
+      response.two = await getCompany(row._row.data.symbol);
       renderStock(response);
     },
   });
@@ -113,7 +115,8 @@ $('document').ready(async () => {
           if ($('#defaultInline1').prop('checked')) {
             // If Stocks Radio is Checked
             // Get Stock Data by symbol
-            response = await getStock(cSymbol);
+            response.one = await getStock(cSymbol);
+            response.two = await getCompany(cSymbol);
             renderStock(response);
           }
           // If Crypto Radio is Checked
@@ -139,12 +142,13 @@ $('document').ready(async () => {
 
 // Render Stock Details on new panel
 function renderStock(response) {
-  $('#stockName').text(response.quote.companyName);
-  $('#stockTicker').text(response.quote.symbol);
-  $('#stockPrice').text('$' + response.quote.latestPrice);
-  $('#stockOpen').text('$' + response.quote.previousClose);
-  $('#stockHigh').text('$' + response.quote.week52High);
-  $('#stockLow').text('$' + response.quote.week52Low);
+  $('#stockName').text(response.one.quote.companyName);
+  $('#stockTicker').text(response.one.quote.symbol);
+  $('#stockPrice').text('$' + response.one.quote.latestPrice);
+  $('#stockOpen').text('$' + response.one.quote.previousClose);
+  $('#stockHigh').text('$' + response.one.quote.week52High);
+  $('#stockLow').text('$' + response.one.quote.week52Low);
+  $('#stockProfile').text(response.two.description);
   //  Show Stock Panel
   $('#stockResults').show();
   $('#searchInput').val('');
