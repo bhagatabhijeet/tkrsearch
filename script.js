@@ -110,8 +110,8 @@ $('document').ready(async () => {
       if (/([^\s])/.test(cSymbol)) {
         // Check for empty spaces before or after string -> returns => true when NO empty spaces before or after
         if (/^[^\s]+(\s+[^\s]+)*$/.test(cSymbol)) {
+          // If Stocks Radio is Checked
           if ($('#defaultInline1').prop('checked')) {
-            // If Stocks Radio is Checked
             // Get Stock Data by symbol
             response = await getStock(cSymbol);
             renderStock(response);
@@ -165,7 +165,6 @@ function renderCrypto(response, cSymbol) {
   } = response.DISPLAY[cSymbol].USD;
 
   $('#cryptoName').text(cSymbol);
-  $('#cryptoTicker').text('NA');
   $('#cryptoPrice').text(price);
   $('#cryptoOpen').text(open);
   $('#cryptoHigh').text(high);
